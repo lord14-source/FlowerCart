@@ -1,0 +1,53 @@
+/* General Footer Styling */
+.footer {
+    background-color: #222;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .footer-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .footer-links,
+  .footer-socials {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .footer-link,
+  .social-link {
+    color: #ffd700; /* Dark yellow links */
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .footer-link:hover,
+  .social-link:hover {
+    color: #fff; /* White on hover */
+  }
+  
+  .footer-bottom {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #aaa;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  }
+  

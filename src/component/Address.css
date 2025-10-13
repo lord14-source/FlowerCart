@@ -1,0 +1,83 @@
+/* Address Page Styling */
+.address-container {
+    padding: 40px;
+    background-color: #f5f5f5;
+    max-width: 700px;
+    margin: 50px auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .address-header {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* Form Styling */
+  .address-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    outline: none;
+  }
+  
+  .form-group input:focus {
+    border-color: #0078d4;
+    box-shadow: 0 0 5px rgba(0, 120, 212, 0.5);
+  }
+  
+  /* Pay Button */
+  .pay-button {
+    padding: 15px 20px;
+    background-color: #ff5c39;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .pay-button:hover {
+    background-color: #f43b00;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .address-container {
+      padding: 20px;
+    }
+  
+    .address-header {
+      font-size: 20px;
+    }
+  
+    .pay-button {
+      font-size: 16px;
+    }
+  }
+  

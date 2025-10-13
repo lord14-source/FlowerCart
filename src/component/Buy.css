@@ -1,0 +1,75 @@
+/* Buy Page Styles */
+.buy-page {
+    padding: 20px;
+    background-color: #f9f9f9;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .buy-page h2 {
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .product-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .product-image {
+    max-width: 150px; /* Ensure the image doesn't exceed this width */
+    max-height: 150px; /* Ensure the image doesn't exceed this height */
+    object-fit: cover; /* Ensures the image maintains its aspect ratio */
+    border-radius: 8px;
+    margin-right: 20px;
+  }
+  
+  
+  .product-info {
+    max-width: 600px;
+  }
+  
+  .product-info p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .product-info strong {
+    font-size: 18px;
+    color: #000;
+  }
+  
+  .checkout-button {
+    display: block;
+    width: 200px;
+    padding: 12px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .checkout-button:hover {
+    background-color: #218838;
+  }
+  
+  .checkout-button:focus {
+    outline: none;
+  }
+  .pay-button{
+    background-color:rgb(220, 84, 220);
+    margin-top: 150px;
+  }
+  
