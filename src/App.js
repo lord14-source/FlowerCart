@@ -6,6 +6,7 @@ import Account from './component/Account';
 import Address from './component/Address';
 import Basket from './component/Basket';
 import Buy from './component/Buy';
+import Cancel from './component/Cancel ';
 import Footer from './component/footer';
 import Header from './component/Header';
 import Home from './component/Home';
@@ -14,6 +15,7 @@ import PaymentPage from './component/PaymentPage';
 import ProductGrid from './component/ProductGrid';
 import Profile from './component/Profile';
 import SearchResults from './component/SearchResults';
+import Success from './component/Success';
 
 function App() {
   const [basket, setBasket] = useState([]); // State to manage basket items
@@ -34,14 +36,14 @@ function App() {
   // Function to fetch price and description from backend
   const fetchProductDetails = async (productId) => {
     try {
-      const response = await fetch(`http://localhost:8082/flower/${productId}`);
+      const response = await fetch(`http://localhost:8080/flower/flowerdata/${productId}`);
       if (!response.ok) {
         throw new Error(`Backend error: ${response.statusText}`);
       }
       const data = await response.json();
       return {
         price: data.price || 'N/A',
-        description: data.prdt_name || 'No description available',
+        description: data.productName || 'No description available',
       };
     } catch (error) {
       console.error('Error fetching product details:', error);
@@ -106,6 +108,9 @@ function App() {
           <Route path="/about" element={<About />} />
           {/* Profile */}
           <Route path="/profile" element={<Profile />} />
+           <Route path="/" element={<PaymentPage />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/cancel" element={<Cancel />} />
         </Routes>
 
         <Footer />

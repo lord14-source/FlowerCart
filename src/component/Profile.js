@@ -10,7 +10,7 @@ function Profile() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await fetch('http://localhost:8082/profile/01250d43-31e1-4aca-b870-df15b18d5e8a');
+        const response = await fetch('http://localhost:8080/profile/01250d43-31e1-4aca-b870-df15b18d5e8a');
         
         if (!response.ok) {
           const errorText = await response.text(); // Get detailed error message

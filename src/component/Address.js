@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './Address.css';
+import "./Address.css";
 
 function Address() {
   const [address, setAddress] = useState({
-    cstr_name: "", // Backend field for "Full Name"
-    strt_address: "", // Backend field for "Street Address"
+    name: "",
+    strt_address: "",
     city: "",
     state: "",
-    zip_code: "", // Backend field for "Zip Code"
+    zip_code: "",
     country: "",
   });
 
@@ -27,7 +27,7 @@ function Address() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8082/Food/address", {
+      const response = await fetch("http://localhost:8080/flower/address", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,37 +35,35 @@ function Address() {
         body: JSON.stringify(address),
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        alert("Address submitted successfully!");
-        console.log("Response:", data);
-
-        // Redirect to the payment page
-        navigate("/payment");
-      } else {
-        alert("Failed to submit the address. Please try again.");
+      if (!response.ok) {
+        throw new Error("Failed to submit address");
       }
+
+      // ⏳ Show loader for 2 seconds, then move to payment
+      setTimeout(() => {
+        navigate("/payment");
+      }, 2000);
+
     } catch (error) {
       console.error("Error submitting address:", error);
-      alert("An error occurred while submitting the address.");
-    } finally {
       setLoading(false);
+      alert("Something went wrong. Please try again.");
     }
   };
 
   return (
     <div className="address-container">
       <h2 className="address-header">Enter Shipping Address</h2>
+
       <form onSubmit={handleSubmit} className="address-form">
         <div className="form-group">
-          <label htmlFor="cstr_name">Full Name</label>
+          <label htmlFor="name">Full Name</label>
           <input
             type="text"
-            id="cstr_name"
-            name="cstr_name"
-            value={address.cstr_name}
+            id="name"
+            name="name"
+            value={address.name}
             onChange={handleChange}
-            placeholder="Enter your full name"
             required
           />
         </div>
@@ -78,7 +76,6 @@ function Address() {
             name="strt_address"
             value={address.strt_address}
             onChange={handleChange}
-            placeholder="Enter street address"
             required
           />
         </div>
@@ -91,7 +88,6 @@ function Address() {
             name="city"
             value={address.city}
             onChange={handleChange}
-            placeholder="Enter city"
             required
           />
         </div>
@@ -104,7 +100,6 @@ function Address() {
             name="state"
             value={address.state}
             onChange={handleChange}
-            placeholder="Enter state"
             required
           />
         </div>
@@ -117,7 +112,6 @@ function Address() {
             name="zip_code"
             value={address.zip_code}
             onChange={handleChange}
-            placeholder="Enter zip code"
             required
           />
         </div>
@@ -130,15 +124,22 @@ function Address() {
             name="country"
             value={address.country}
             onChange={handleChange}
-            placeholder="Enter country"
             required
           />
         </div>
 
         <button type="submit" className="pay-button" disabled={loading}>
-          {loading ? "Submitting..." : "Continue to Payment"}
+          {loading ? "Saving address..." : "Continue to Payment"}
         </button>
       </form>
+
+      {/* Optional full-screen loader */}
+      {loading && (
+        <div className="loader-overlay">
+          <div className="loader"></div>
+          <p>Saving address, please wait...</p>
+        </div>
+      )}
     </div>
   );
 }

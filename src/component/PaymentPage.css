@@ -1,110 +1,36 @@
-/* General Styles */
-.payment-page {
-    max-width: 600px;
-    margin: 50px auto;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-    color: #333;
-  }
-  
-  /* Headings */
-  h2, h3, h4 {
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  /* Order Summary Section */
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  ul li {
-    margin-bottom: 8px;
-    font-size: 14px;
-  }
-  
-  h4 {
-    font-size: 18px;
-    font-weight: bold;
-    text-align: right;
-    margin-top: 10px;
-  }
-  
-  /* Delivery Address Section */
-  select {
-    width: 100%;
-    padding: 8px;
-    font-size: 14px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  /* Payment Methods Section */
-  label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  input[type='radio'] {
-    margin-right: 8px;
-  }
-  
-  /* Promo Code Section */
-  input[type='text'] {
-    width: calc(100% - 20px);
-    padding: 8px;
-    margin-top: 10px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  button {
-    margin-top: 10px;
-    background-color: #FFA500;
-    color: white;
-    padding: 10px 15px;
-    font-size: 14px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #ff8c00;
-  }
-  
-  /* Pay Button */
-  .pay-button {
-    width: 100%;
-    text-align: center;
-    font-size: 16px;
-    margin-top: 20px;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .payment-page {
-      padding: 15px;
-    }
-  
-    h4 {
-      text-align: left;
-    }
-  
-    button {
-      width: 100%;
-    }
-  }
-  
+.payment-container {
+  max-width: 500px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+}
+
+.payment-option {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+}
+
+.payment-option label {
+  font-weight: bold;
+}
+
+.pay-now-btn {
+  margin-top: 12px;
+  width: 100%;
+  background-color: #ffd814;
+  border: 1px solid #fcd200;
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cod-btn {
+  background-color: #eee;
+}
+
+.upi-input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}

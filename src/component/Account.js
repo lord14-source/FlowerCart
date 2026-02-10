@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Account.css'; // Import styles
 
 function Account() {
@@ -14,19 +14,19 @@ function Account() {
     setError(null);
 
     try {
-        const response = await fetch('http://localhost:8082/Food/signin', {
+        const response = await fetch('http://localhost:8080/flower/SignIn', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                id: email, // Assuming ID is the email
-                mbl_no: mobile,
-                password: password
+                name: email, // Assuming ID is the email
+                mblNo: mobile,
+                pswrd: password
             }),
         });
 
         const data = await response.text(); // Using .text() to get plain text response
-
-        if (response.ok && data === "Success") { // Checking if the response is exactly "Success"
+console.log(response + " ----------->>>>>>>>"+ data)
+        if (response.status=='302' && data === "SUCCESS") { // Checking if the response is exactly "Success"
             alert('Login Successful!');
             console.log('User Signed In:', data);
 
@@ -36,6 +36,7 @@ function Account() {
             // Redirect to home page
             window.location.href = "/";
         } else {
+          alert('Login UnSuccessful!');
             setError('Invalid credentials or error. Please try again.');
         }
     } catch (err) {
@@ -49,21 +50,22 @@ const handleCreateAccountSubmit = async (e) => {
   setError(null);
 
   try {
-    const response = await fetch('http://localhost:8082/Food/sign', {
+    const response = await fetch('http://localhost:8080/flower/registration', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        name: username,
-        id: email, // Assuming email is used as ID
-        mbl_no: mobile,
-        password: password
+        usrName: username,
+        useEmail: email, // Assuming email is used as ID
+        usrMbl: mobile,
+        usrPwd: password
       }),
     });
 
     // Get the response as plain text
     const data = await response.text();
 
-    if (response.ok && data === "Success") {
+    if (response.ok && data === "SUCCESS") {
+      
       alert('Account Created Successfully!');
       setIsSignIn(true); // Switch to Sign In form
     } else {
